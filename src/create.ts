@@ -77,8 +77,7 @@ NODE_ENV=development
     const packageJsonPath = path.join(projectPath, 'package.json');
     let packageJson = fs.readFileSync(packageJsonPath, 'utf8');
     packageJson = packageJson.replace('{{PROJECT_NAME}}', projectName);
-    fs.writeFileSync(path.join(projectPath, 'package.json'), packageJson);
-    fs.unlinkSync(packageJsonPath); // Remove template file
+    fs.writeFileSync(packageJsonPath, packageJson);
 
     // Create .gitignore
     const gitignoreContent = `node_modules/
@@ -108,7 +107,7 @@ dist/
     console.error(chalk.red('\n❌ Error creating project:'), errorMessage);
     // Cleanup on error
     if (fs.existsSync(projectPath)) {
-      fs.removeSync(projectPath);
+      //fs.removeSync(projectPath);
     }
     process.exit(1);
   }

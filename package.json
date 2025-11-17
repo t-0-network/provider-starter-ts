@@ -1,6 +1,6 @@
 {
   "name": "@t-0/provider-starter-ts",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "CLI tool to scaffold a Node.js t-0 Network integration service",
   "main": "dist/create.js",
   "bin": {
@@ -14,7 +14,8 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "npm run build && npm publish --access public"
   },
   "keywords": [
     "cli",
