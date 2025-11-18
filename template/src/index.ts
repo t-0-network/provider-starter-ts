@@ -38,7 +38,7 @@ async function main() {
     signatureValidation(
       nodeAdapter(
         createService(networkPublicKeyHex!, (r) => {
-          r.service(ProviderService, CreateProviderService());
+          r.service(ProviderService, CreateProviderService(networkClient));
         })))
   ).listen(port);
   console.log("✅ Service ready and is listening at", server.address());
@@ -54,7 +54,7 @@ async function main() {
 
   // TODO: Step 2.2 deploy your integration and provide t-0 team base URL of your deployment
 
-  // TODO: Step 2.3 check that you can submit payment by revisiting ./submit_payment.ts and uncommenting following line
+  // TODO: Step 2.3 check that you can submit payment by revisiting ./submit_payment.ts uncommenting following line
   // await submitPayment(networkClient)
 
   // TODO: Step 2.5 ask t-0 team to submit a payment which would trigger your payOut endpoint
