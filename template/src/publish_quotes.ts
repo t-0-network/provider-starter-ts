@@ -20,6 +20,19 @@ export default async function publishQuotes(networkClient: Client<typeof Network
           quoteType: QuoteType.REALTIME, // REALTIME is only one supported right now
           paymentMethod: PaymentMethodType.SEPA,
           timestamp: timestampFromDate(new Date()), // Current timestamp
+        }],
+        payOut: [{
+          bands: [{
+            // note that rate is always USD/XXX, os that for EUR quote should be USD/EUR
+            rate: toProtoDecimal(873, -3), // rate 0.873
+            maxAmount: toProtoDecimal(1000, 0), // maximum amount in USD, could be 1000,5000,10000 or 25000
+            clientQuoteId: randomUUID(),
+          }],
+          currency: 'EUR',
+          expiration: timestampFromDate(new Date(Date.now() + 30 * 1000)), // expiration time (30 seconds from now)
+          quoteType: QuoteType.REALTIME, // REALTIME is only one supported right now
+          paymentMethod: PaymentMethodType.SEPA,
+          timestamp: timestampFromDate(new Date()), // Current timestamp
         }]
       })
     } catch (error) {
