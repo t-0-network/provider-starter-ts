@@ -7,6 +7,9 @@ export default async function publishQuotes(networkClient: Client<typeof Network
   // TODO: Step 1.3 replace this with receiving quotes from you systems and publishing them into t-0 Network. We recommend publishing at least once per 5 seconds, but not more than once per second
   const tick =  async () => {
     try {
+      //NOTE: Every update quote request discard all previous quotes that were published before.
+      // So if you want to publish multiple quotes, you need to combine them into a single request.
+      // Otherwise, if you send multiple requests, only the quotes from the last one will be available.
       await networkClient.updateQuote({
         payIn: [{
           bands: [{
