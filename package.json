@@ -30,7 +30,7 @@
   "author": "New Settlement Technologies Inc.",
   "license": "MIT",
   "dependencies": {
-    "@t-0/provider-sdk": "^1.0.47",
+    "@t-0/provider-sdk": "^1.0.48",
     "chalk": "^4.1.2",
     "fs-extra": "^11.1.1",
     "inquirer": "^8.2.5"
