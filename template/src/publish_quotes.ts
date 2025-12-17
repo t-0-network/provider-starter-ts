@@ -15,7 +15,7 @@ export default async function publishQuotes(networkClient: Client<typeof Network
           bands: [{
             // note that rate is always USD/XXX, os that for EUR quote should be USD/EUR
             rate: toProtoDecimal(863, -3), // rate 0.863
-            maxAmount: toProtoDecimal(1000, 0), // maximum amount in USD, could be 1000,5000,10000 or 25000
+            maxAmount: toProtoDecimal(25000, 0), // maximum amount in USD, could be 1000,5000,10000 or 25000
             clientQuoteId: randomUUID(),
           }],
           currency: 'EUR',
@@ -28,7 +28,7 @@ export default async function publishQuotes(networkClient: Client<typeof Network
           bands: [{
             // note that rate is always USD/XXX, os that for EUR quote should be USD/EUR
             rate: toProtoDecimal(873, -3), // rate 0.873
-            maxAmount: toProtoDecimal(1000, 0), // maximum amount in USD, could be 1000,5000,10000 or 25000
+            maxAmount: toProtoDecimal(25000, 0), // maximum amount in USD, could be 1000,5000,10000 or 25000
             clientQuoteId: randomUUID(),
           }],
           currency: 'EUR',
