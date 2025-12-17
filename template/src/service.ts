@@ -42,7 +42,7 @@ const CreateProviderService = (networkClient: Client<typeof NetworkService>) => 
 
     async updateLimit(req: UpdateLimitRequest, _: HandlerContext) {
       // TODO: optionally implement updates on your limits and limits usage
-      console.log(`Received update of limits with provider ${req.limits[0].creditorId}`)
+      console.log(`Received update of limits with provider ${req.limits[0].counterpartId}`)
       return {} as UpdateLimitResponse
     },
 

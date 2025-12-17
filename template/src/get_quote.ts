@@ -11,7 +11,7 @@ export default async function getQuote(networkClient: Client<typeof NetworkServi
     amount: {
       amount: {
         case: 'payInAmount',
-        value: toProtoDecimal(1000, 0)
+        value: toProtoDecimal(10, 0)
       },
     }
   })

@@ -30,6 +30,7 @@ invariant(networkPublicKeyHex, 'Network public key is not set');
 async function main() {
   console.log('🚀 Service starting...');
   console.log(`📡 Port: ${port}`);
+  console.log(`🔑 Network Public Key: ${networkPublicKeyHex}`);
   const networkClient = createClient(privateKeyHex!, endpoint, NetworkService);
 
   await publishQuotes(networkClient, quotePublishingInterval)
