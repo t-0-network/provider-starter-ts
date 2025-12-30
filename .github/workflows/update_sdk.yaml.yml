@@ -25,6 +25,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Update SDK
+        working-directory: ./template
         run: |
           npm install @t-0/provider-sdk@${{ github.event.client_payload.sdkVersion }}
 
