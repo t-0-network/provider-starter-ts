@@ -3,14 +3,12 @@ import {fromProtoDecimal, toProtoDecimal} from "./lib";
 
 export default async function getQuote(networkClient: Client<typeof NetworkService>) {
   const eurgbp = await networkClient.getQuote({
-    payInCurrency: "EUR",
-    payInMethod: PaymentMethodType.SEPA,
     payOutCurrency: "GBP",
     payOutMethod: PaymentMethodType.SWIFT,
     quoteType: QuoteType.REALTIME,
     amount: {
       amount: {
-        case: 'payInAmount',
+        case: 'payOutAmount',
         value: toProtoDecimal(10, 0)
       },
     }
@@ -18,7 +16,7 @@ export default async function getQuote(networkClient: Client<typeof NetworkServi
 
   switch (eurgbp.result.case) {
     case 'success':
-      console.log(`EUR/GBP: ${fromProtoDecimal(eurgbp.result.value.rate!)}`)
+      console.log(`USD/GBP: ${fromProtoDecimal(eurgbp.result.value.rate!)}`)
       break;
     case 'failure':
       console.error(eurgbp.result.value.reason)
