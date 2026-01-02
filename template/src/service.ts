@@ -7,7 +7,7 @@ import {
   AppendLedgerEntriesRequest,
   AppendLedgerEntriesResponse,
   UpdatePaymentResponse,
-  HandlerContext, type Client, NetworkService,
+  HandlerContext, type Client, NetworkService, ApprovePaymentQuoteRequest, ApprovePaymentQuoteResponse,
 } from "@t-0/provider-sdk";
 
 /*
@@ -52,6 +52,17 @@ const CreateProviderService = (networkClient: Client<typeof NetworkService>) => 
       return {
       } as AppendLedgerEntriesResponse
     },
+
+    async approvePaymentQuote(req: ApprovePaymentQuoteRequest, _: HandlerContext) {
+      // TODO: when the payment goes through the Manual AML Check on the pay-out provider side, the provider submitted the payment will have a last look to approve final quote
+      console.log(`Received approve payment quote request for ${req.paymentId}`)
+      return {
+        result: {
+          case: "accepted",
+          value: {}
+        }
+      } as ApprovePaymentQuoteResponse
+    }
   }
 };
 
