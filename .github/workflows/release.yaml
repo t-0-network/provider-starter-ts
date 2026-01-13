@@ -37,6 +37,13 @@ jobs:
           npm i
           npm run build
 
+      # check template is build correctly
+      - name: Build
+        working-directory:  ./template
+        run: |
+          npm i
+          npm run build
+
       - name: Bump version
         run: npm version patch --git-tag-version false
 

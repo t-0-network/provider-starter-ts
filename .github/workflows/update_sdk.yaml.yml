@@ -33,6 +33,12 @@ jobs:
         with:
           commit_message: 'Updated SDK to ${{ github.event.client_payload.sdkVersion }}'
 
+      - name: Build
+        working-directory: ./template
+        run: |
+          npm i
+          npm run build
+
       - name: Trigger release after SDK update
         uses: peter-evans/repository-dispatch@v3
         with:
