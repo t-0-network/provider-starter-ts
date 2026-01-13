@@ -27,13 +27,25 @@ const CreateProviderService = (networkClient: Client<typeof NetworkService>) => 
 
         async payOut(req: PayoutRequest, _: HandlerContext) {
             // TODO: Step 2.4 implement how you do payouts (payments initiated by your counterparts)
-            console.log(`Received payout request ${req.payoutId}`)
+            console.log(`Received payout request ${req.paymentId}`)
 
             //TODO: confirmPayout should be called when you system notifies that payout has been made successfully
             setInterval(() => {
-                networkClient.confirmPayout({
+                networkClient.finalizePayout({
                     paymentId: req.paymentId,
-                    payoutId: req.payoutId,
+                    result: {
+                        case: 'success',
+                        value: {
+                            receipt: {
+                                details: {
+                                    case: 'sepa',
+                                    value: {
+                                        bankingTransactionReferenceId: '1234567890',
+                                    }
+                                }
+                            },
+                        },
+                    }
                 })
             }, 2000);
             return {
