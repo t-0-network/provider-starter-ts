@@ -2,24 +2,24 @@ import {type Client, NetworkService, PaymentMethodType, QuoteType} from "@t-0/pr
 import {fromProtoDecimal, toProtoDecimal} from "./lib";
 
 export default async function getQuote(networkClient: Client<typeof NetworkService>) {
-  const eurgbp = await networkClient.getQuote({
+  const usdgbp = await networkClient.getQuote({
     payOutCurrency: "GBP",
-    payOutMethod: PaymentMethodType.SWIFT,
+    payOutMethod: PaymentMethodType.SEPA,
     quoteType: QuoteType.REALTIME,
     amount: {
       amount: {
         case: 'payOutAmount',
-        value: toProtoDecimal(10, 0)
+        value: toProtoDecimal(50, 0)
       },
     }
   })
 
-  switch (eurgbp.result.case) {
+  switch (usdgbp.result.case) {
     case 'success':
-      console.log(`USD/GBP: ${fromProtoDecimal(eurgbp.result.value.rate!)}`)
+      console.log(`USD/GBP: ${fromProtoDecimal(usdgbp.result.value.rate!)}`)
       break;
     case 'failure':
-      console.error(eurgbp.result.value.reason)
+      console.error(usdgbp.result.value.reason)
       break;
     default:
       console.error("unexpected result type")
