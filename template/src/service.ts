@@ -29,7 +29,7 @@ const CreateProviderService = (networkClient: Client<typeof NetworkService>) => 
             // TODO: Step 2.4 implement how you do payouts (payments initiated by your counterparts)
             console.log(`Received payout request ${req.paymentId}`)
 
-            //TODO: confirmPayout should be called when you system notifies that payout has been made successfully
+            // TODO: finalizePayout should be called when your system completes (or fails) the payout
             setInterval(() => {
                 networkClient.finalizePayout({
                     paymentId: req.paymentId,
