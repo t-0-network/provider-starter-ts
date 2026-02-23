@@ -57,7 +57,7 @@ async function create(): Promise<void> {
 
     // Create .env file with keys
     const envContent = `
-NETWORK_PUBLIC_KEY=0x0436a6bba96086e02bcc8ea3700b82b4722f84b2b7489f36e4490f9a9342b77abfb6428b4a447824e0a6f5abd89098c985f4e506c65b5e9ae64a92810e1a1c0e79
+NETWORK_PUBLIC_KEY=0x041b6acf3e830b593aaa992f2f1543dc8063197acfeecefd65135259327ef3166acaca83d62db19eb4fecb3d04e44094378839b8c13a2af26bf78fed56a4af935b
 
 # Private Key (secp256k1)    
 PROVIDER_PRIVATE_KEY=${keys.privateKey}
