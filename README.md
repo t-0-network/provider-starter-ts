@@ -1,3 +1,13 @@
+# :warning: DEPRECATED
+
+> **This repository has been deprecated.** All development has moved to the unified Provider SDK monorepo.
+>
+> **Please use [t-0-network/provider-sdk](https://github.com/t-0-network/provider-sdk) instead.**
+>
+> This repository is no longer maintained and will be archived.
+
+---
+
 # t-0 Network Provider Starter
 
 CLI tool to quickly bootstrap a Node.js TypeScript integration service for the t-0 Network.
